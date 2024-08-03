@@ -7,7 +7,7 @@ export default function NavBar() {
   return (
     <nav>
       {!isLoading && !user && (
-        <a href="/api/auth/login" className="login-button">Login</a>
+        <a href="/api/auth/login?returnTo=/landing" className="login-button">Login</a>
       )}
       {user && (
         <a href="/api/auth/logout" className="logout-button">Logout</a>
