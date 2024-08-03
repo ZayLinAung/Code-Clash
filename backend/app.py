@@ -1,4 +1,5 @@
 from flask import Flask
+from models import client
 
 app = Flask(__name__)
 
