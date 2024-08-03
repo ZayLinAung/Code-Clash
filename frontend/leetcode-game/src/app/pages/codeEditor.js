@@ -13,7 +13,7 @@ const CodeEditor = ({ onChange, language, code, theme }) => {
   return (
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
       <Editor
-      className = "h-[85vh] w-[100%] border border-black"
+      className = "h-[85vh] w-[100%] border-2 border-solid border-black shadow-custom"
         language={language || "javascript"}
         value={value}
         theme={theme}

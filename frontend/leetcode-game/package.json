@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
+    "bootstrap": "^5.3.3",
     "monaco-themes": "^0.4.4",
     "next": "14.2.5",
     "react": "^18",
+    "react-bootstrap": "^2.10.4",
     "react-dom": "^18",
+    "react-progress": "^0.0.12",
+    "react-progress-bar": "^0.1.0",
     "react-select": "^5.8.0"
   },
   "devDependencies": {

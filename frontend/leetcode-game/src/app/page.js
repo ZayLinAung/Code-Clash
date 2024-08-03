@@ -2,12 +2,15 @@
 import Image from "next/image";
 
 import React, { useState } from "react";
-
+import Progress from 'react-progress';
 import Editor from "@monaco-editor/react";
-import LanguagesChoice from "./languageChoice";
-import CodeEditor from "./codeEditor";
-import ThemeChoice from "./themeChoice";
-import { defineTheme } from "./defineTheme";
+import LanguagesChoice from "./pages/languageChoice";
+import CodeEditor from "./pages/codeEditor";
+import ThemeChoice from "./pages/themeChoice";
+import { defineTheme } from "./pages/defineTheme";
+import Problem from "./pages/problem";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+
 
 const javascriptDefault = `// Start writing your code here
 `;
@@ -51,23 +54,30 @@ export default function Home() {
   };
 
   return (
-    <div className="flex p-[20px]">
-      <div className="flex-1">
-        <div className = "flex flex-col gap-[20px]">
-          <div className="flex flex-row gap-[20px]">
-            <LanguagesChoice onSelectChange={onSelectChange} />
-            <ThemeChoice handleThemeChange={handleThemeChange} theme={theme} />
+    <div className="flex flex-col p-[20px]">
+      <Progress percent={99} />
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-row gap-[20px]">
+          <LanguagesChoice onSelectChange={onSelectChange} />
+          <ThemeChoice handleThemeChange={handleThemeChange} theme={theme} />
+        </div>
+        <div className = "text-[20px]">Timer: 3:00</div>
+      </div>
+      <div className="flex py-[20px] gap-[20px]">
+        <div className="flex-1">
+          <div className="flex flex-col gap-[20px]">
+            <CodeEditor
+              code={code}
+              onChange={onChange}
+              language={language?.value}
+              theme={theme.value}
+            ></CodeEditor>
           </div>
-
-          <CodeEditor
-            code = {code}
-            onChange={onChange}
-            language={language?.value}
-            theme={theme.value}
-          ></CodeEditor>
+        </div>
+        <div className="flex-1">
+          <Problem />
         </div>
       </div>
-      <div className="flex-1">Problem</div>
     </div>
   );
 }
