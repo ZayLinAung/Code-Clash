@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 const testCases = [
-  { input: '5 3', expectedOutput: '8' },
-  { input: '10 7', expectedOutput: '17' }
+  { input: '5 3 5', expectedOutput: '13' },
+  { input: '10 7 5', expectedOutput: '22' }
 ];
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
