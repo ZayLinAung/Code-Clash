@@ -1,10 +1,12 @@
-from mongoengine import Document, ListField, StringField, ReferenceField, DateTimeField
-from datetime import datetime
+from mongoengine import Document, ListField, BooleanField, ReferenceField, DateTimeField, StringField
+
 
 class Room(Document):
-    users = ListField(ReferenceField('User'))
-    start_date = DateTimeField(default=datetime.datetime.now)
-    problem = ListField(ReferenceField('Problem'))
+    owner = StringField()
+    opponent = StringField()
+    start_date = DateTimeField()
+    problem = ReferenceField('Problem')
+    started = BooleanField(default=False)
 
     def to_serializable_dict(self):
         entity_dict = self.to_mongo().to_dict()
