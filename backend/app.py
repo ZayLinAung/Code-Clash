@@ -1,15 +1,36 @@
+<<<<<<< HEAD
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+=======
+from flask import Flask
+from flask_socketio import SocketIO, emit
+>>>>>>> f4aa8aa7993972ee89ca762b966d21d074792b37
 
-app = Flask(__name__)
+socketio = SocketIO(cors_allowed_origins=["http://localhost:3000"])
 
+<<<<<<< HEAD
 CORS(app)
 
+=======
+def create_app():
+    app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+    app.config['SECRET_KEY'] = "the random string"
+    app.config['MONGODB_URL'] = "mongodb://localhost:27017"
 
+    from models import init_app
+    from routes.room import blueprint as RoomRoute
+    from routes.problem import blueprint as ProblemRoute
+    #import events
+>>>>>>> f4aa8aa7993972ee89ca762b966d21d074792b37
+
+    init_app(app)
+    app.register_blueprint(RoomRoute, url_prefix='/room')
+    app.register_blueprint(ProblemRoute, url_prefix='/problem')
+    socketio.init_app(app)
+    return app
+
+<<<<<<< HEAD
 @app.route('/room/', methods=['POST', 'OPTIONS'])
 def create_room():
     if request.method == 'OPTIONS':
@@ -28,3 +49,22 @@ def join_room(room_id):
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
+=======
+@socketio.on('message')
+def handle_message(msg):
+    print('Message: ' + msg)
+    emit('message', msg, broadcast=True)
+
+
+# @socketio.on('room:join')
+# def join_room():
+#     pass
+
+# @socketio.on('room:start')
+# def start_room():
+#     pass
+app = create_app()
+if __name__ == '__main__':
+    socketio.run(app, debug=True)
+    #.run(debug=True)
+>>>>>>> f4aa8aa7993972ee89ca762b966d21d074792b37
