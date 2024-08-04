@@ -10,6 +10,9 @@ module.exports = {
       boxShadow: {
         'custom': '2px 2px 0px 0px rgba(0, 0, 0, 1)',
       },
+      flex: {
+        '2': '2 2 0%', // Add or customize the flex property
+      },
     },
   },
   plugins: [],

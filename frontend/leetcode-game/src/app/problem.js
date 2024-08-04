@@ -1,19 +1,22 @@
 import React from "react";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import {createRoot} from 'react-dom/client'
+import Markdown from 'react-markdown'
 
 const Problem = () => {
+
+  const question = "hi"
+
   return (
     <div className="flex flex-col h-[85vh] gap-[20px]">
       <div className="p-[30px] h-[70%] flex flex-col gap-[20px] border-2 border-solid border-black shadow-custom rounded-lg overflow-auto resize-y">
         <div>
           <div className="font-bold text-[28px]">Problem</div>
         </div>
-        <div>
-          Given an array of integers nums and an integer target, return indices
-          of the two numbers such that they add up to target. You may assume
-          that each input would have exactly one solution, and you may not use
-          the same element twice. You can return the answer in any order.
-        </div>
+       
+        <Markdown>
+          {question}
+        </Markdown>
         <div>
           <div className = "font-bold">Example 1</div>
           <div>
@@ -25,9 +28,9 @@ const Problem = () => {
       </div>
       <div className="p-[30px] flex-1 flex flex-col gap-[20px] border-2 border-solid border-black shadow-custom rounded-lg">
         <div>Your test cases: </div>
-        <ProgressBar variant="success" now={90} />
+        <ProgressBar variant="success" now={90} label={`9/10`}/>
         <div>Opponents test cases:</div>
-        <ProgressBar variant="danger" now = {50}/>
+        <ProgressBar variant="danger" now = {50} label={`5/10`}/>
       </div>
     </div>
   );

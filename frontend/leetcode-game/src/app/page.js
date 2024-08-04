@@ -2,15 +2,14 @@
 import Image from "next/image";
 
 import React, { useState } from "react";
-import Progress from 'react-progress';
+import Progress from "react-progress";
 import Editor from "@monaco-editor/react";
-import LanguagesChoice from "./pages/languageChoice";
-import CodeEditor from "./pages/codeEditor";
-import ThemeChoice from "./pages/themeChoice";
-import { defineTheme } from "./pages/defineTheme";
-import Problem from "./pages/problem";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-
+import LanguagesChoice from "./languageChoice";
+import CodeEditor from "./codeEditor";
+import ThemeChoice from "./themeChoice";
+import { defineTheme } from "./defineTheme";
+import Problem from "./problem";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const javascriptDefault = `// Start writing your code here
 `;
@@ -61,7 +60,7 @@ export default function Home() {
           <LanguagesChoice onSelectChange={onSelectChange} />
           <ThemeChoice handleThemeChange={handleThemeChange} theme={theme} />
         </div>
-        <div className = "text-[20px]">Timer: 3:00</div>
+        <div className="text-[20px]">Timer: 3:00</div>
       </div>
       <div className="flex py-[20px] gap-[20px]">
         <div className="flex-1">
