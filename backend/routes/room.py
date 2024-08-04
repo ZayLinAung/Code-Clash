@@ -15,7 +15,7 @@ def create_room():
     userId = request.json['userId']
     newRoom = Room(owner=userId)
     newRoom.save()
-    join_room(newRoom._id)
+    join_room(newRoom.id)
     return jsonify({"data": newRoom.to_serializable_dict()}), 201
 
 # this -> socket update
@@ -25,8 +25,8 @@ def join_room(room_id):
         opponentId = request.json['opponentId']
         room = Room.objects(id=room_id).first()
         Room.update(room, {"opponent": opponentId})
-        join_room(room._id)
-        emit('room:joined', {"opponent": opponentId}, to=room._id)
+        join_room(room.id)
+        emit('room:joined', {"opponent": opponentId}, to=room.id)
         return jsonify({"data": room.to_serializable_dict()}), 201
     except:
         return "Room not found", 401

@@ -12,7 +12,7 @@ export default function JoinRoom() {
     try {
       const userId = 'someUserId'; // Replace this with actual user ID
       const response = await createRoom(userId);
-      window.location.href = `/room/${response._id}`;
+      window.location.href = `/room/${response.id}`;
     } catch (error) {
       setError('Failed to create room');
       console.error('Error creating room:', error);

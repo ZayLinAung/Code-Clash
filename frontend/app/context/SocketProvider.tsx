@@ -9,7 +9,7 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const socketInstance = io("http://127.0.0.1:5000");
+    const socketInstance = io("http://127.0.0.1:5001");
     setSocket(socketInstance);
 
     socketInstance.on('connect', () => {
