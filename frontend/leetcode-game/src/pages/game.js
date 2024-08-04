@@ -4,8 +4,8 @@ import React from "react";
 
 const game = () => {
   return (
-    <div className="flex flex-row p-[100px]">
-      <div className="flex-1 flex flex-col gap-[30px]">
+    <div className="flex flex-row p-[110px]">
+      <div className="flex-1 flex flex-col gap-[90px]">
         <div className="font-[Poppins] leading-[84px] text-[64px] font-[800]">
           Welcome to the coding <span className="text-[red]">battle!</span>
         </div>
